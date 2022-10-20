@@ -2,7 +2,7 @@
  <head>
 
  </head>
-</body>
+<body onload="initPage()">
 <h2> DOM elements, HTML and CSS</h2>
 <p id="jstitle">JavaScript</p>
 <b>Finding HTML element using the tag name</b>
@@ -10,7 +10,20 @@
 <i class="jsdescription">JavaScript is a programming language</i>
 <h2 id="jsstyled" style="color:red">JavaScript</h2>
 <button type="button"
-onclick="document.getElementById('jsstyled').style.color='green'">Click Me!</button>
+onclick="changeButton()">Click Me!</button>
+
+<div id="content">
+    <h3>Select your favorite language:</h3>
+    <select id="languages" onclick="selectLanguage(this.value)">
+        <option value="">--Select--</option>
+        <option value="java">Java</option>
+        <option value="c#">C#</option>
+        <option value="python">Python</option>
+        <option value="c++">C++</option>
+        <option value="javascript">JavaScript</option>
+      </select><br>
+    <textarea id="code" rows="8" cols="25"></textarea>
+</div>
 <script src="/dom.js">
     
 </script>  
