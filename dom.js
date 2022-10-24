@@ -8,8 +8,28 @@ function initPage(){
     content.style.textAlign="center"
     content.style.width="80%"
     content.style.margin="AUTO"
+    content.style.display="block"
     var languages=document.getElementById('languages')
     languages.style.margin="10px"
+    var image=document.getElementById('image')
+    image.style.margin="AUTO"
+    image.style.width="80%"
+    image.style.textAlign="center"
+}
+
+function switchContent(){
+    
+    var content=document.getElementById('content')
+    var image=document.getElementById('image')
+    console.log("switchContent "+content.style.display)
+    if (content.style.display == "none"){
+        image.style.display="none"
+        content.style.display="block"
+        
+    }else{
+        content.style.display="none"
+        image.style.display="block"
+    }
 }
 
 function selectLanguage(choice){

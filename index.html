@@ -10,7 +10,8 @@
 <i class="jsdescription">JavaScript is a programming language</i>
 <h2 id="jsstyled" style="color:red">JavaScript</h2>
 <button type="button"
-onclick="changeButton()">Click Me!</button>
+onclick="changeButton()" style=>Click Me!</button>
+
 
 <div id="content">
     <h3>Select your favorite language:</h3>
@@ -24,7 +25,13 @@ onclick="changeButton()">Click Me!</button>
       </select><br>
     <textarea id="code" rows="8" cols="25"></textarea>
 </div>
-<a href="second.html"><img src="smiley.gif" alt="HTML tutorial" style="width:42px;height:42px;"></a>
+<div id="image" style="display:none">
+  <img src="johnny.png" width="300";height="200"></img>
+</div>
+<div>
+<p style="display:inline-block" onclick="switchContent()"><img src="smiley.gif" ></p>
+<p style="display:inline-block">click smiley to change content above</p>
+</div>
 <script src="/dom.js">
   
 </script>  
