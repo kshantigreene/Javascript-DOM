@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+ <head>
+  <script src="/dom.js">
+  
+  </script>  
+ </head>
+ <body>
+    <h1>Hello from page 2!</h1>
+
+    <!-- Create  Mappings -->
+    <img src = "/images/cuisines.png" alt = "HTML Map" border = "0" usemap = "#cuisines"/>
+      
+    <map name = "cuisines">
+      <!--top left-->
+       <area shape="rect"
+         coords="0,0,604,391"
+         onmouseover="console.log('top left')"
+         onmousedown="console.log('selected Italian')"
+       >
+       <!--top right-->
+       <area shape="rect" 
+         coords="605,0,1200,392"
+         onmouseover="console.log('top right')"
+       >
+       <!---bottom left-->
+       <area shape="rect"
+         coords="0,392,604,712"
+         onmouseover="console.log('bottom left')"
+       >
+       <!--- bottom right-->
+       <area shape="rect"
+         coords="605,392,1200,712"
+         onmouseover="console.log('bottom right')"
+       >
+    </map>
+ </body>
