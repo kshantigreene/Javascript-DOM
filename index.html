@@ -11,11 +11,10 @@
 <p id="jstext"><i>JavaScript is <b>very</b> easy to <b>learn</b></i></p>
 <i class="jsdescription">JavaScript is a programming language</i>
 <h2 id="jsstyled" style="color:red">JavaScript</h2>
-<button type="button"
-onclick="changeButton()" style=>Click Me!</button>
+<button type="button" onclick="changeButton()" style=>Click Me to go to another page!</button>
 
 
-<div id="content">
+<div id="content"><!--- drop down and text area for language-->
     <h3>Select your favorite language:</h3>
     <select id="languages" onclick="selectLanguage(this.value)">
         <option value="">--Select--</option>
@@ -27,10 +26,14 @@ onclick="changeButton()" style=>Click Me!</button>
       </select><br>
     <textarea id="code" rows="8" cols="25"></textarea>
 </div>
-<div id="image" style="display:none">
+
+<!---image that is initially hidden-->
+<div id="image" style="display:none"> <!---note the display:none to hide it initially-->
   <img src="johnny.png" width="300";height="200"></img>
 </div>
 <div>
+  
+<!--- click smiley to toggle visible divs-->
 <p style="display:inline-block" onclick="switchContent()"><img src="smiley.gif" ></p>
 <p style="display:inline-block">click smiley to change content above</p>
 </div>
