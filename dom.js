@@ -1,3 +1,4 @@
+
 function testLocal(){
     localStorage.setItem("test","test1")
 }
@@ -18,7 +19,7 @@ function initPage(){
     content.style.textAlign="center"
     content.style.width="80%"
     content.style.margin="AUTO"
-    content.style.display="block"
+    content.style.display="block"// shows it
     var languages=document.getElementById('languages')
     languages.style.margin="10px"
     var image=document.getElementById('image')
@@ -27,6 +28,9 @@ function initPage(){
     image.style.textAlign="center"
     localStorage.setItem('LastLanguage','python')
     console.log(localStorage.getItem('LastLanguage'))
+    const items = { ...localStorage };
+
+    loadPosts();
 
 }
 
@@ -92,3 +96,58 @@ function getLocal(){
     console.log("Last cuisine was: "+localStorage.getItem("cuisine"))
 }
 
+
+function loadPosts(){
+    //use this code to add p elements to a div
+    //from https://www.w3schools.com/jsref/met_document_createelement.asp
+    let postdiv=document.getElementById("posts");
+
+    //look at each key in localstorage and find the ones that contain 'subject'
+    for(let i = 0; i < localStorage.length; i++){
+        if(localStorage.key(i).indexOf("subject") != -1){
+            //key contains subject
+            //create a p tag and set its class to post
+            const para = document.createElement("p");
+            para.setAttribute("class","post");
+            //get the id from the key
+            let dot=localStorage.key(i).indexOf(".");
+            let id=localStorage.key(i).substring(0,dot);
+            //set the id attribute and onclick to loadReplies
+            para.setAttribute("id",id);
+            //The following line passes the value in ID into the string. Note the back-tick for quotes. Then use the 
+            //${varname} to place the value in id into the string.
+            para.setAttribute("onclick",`loadReplies(${id})`);
+            //set the visible text of the p to the subject of the post
+            para.innerHTML=localStorage.getItem(localStorage.key(i));
+            //add the p to the div
+            postdiv.appendChild(para);
+        }
+    }
+}   
+
+/***
+ * Load reply IDs for the post with id
+ */
+function loadReplies(id){
+    console.log("loading replies for "+id);
+    let replies=[]; //a new array
+    //look for a reply to with the value as the id
+    for(let i = 0; i < localStorage.length; i++){
+        console.log(localStorage.key(i)+":"+localStorage.getItem(localStorage.key(i)));
+        if(localStorage.key(i).indexOf("replyto") != -1){
+            let val=localStorage.getItem(localStorage.key(i));
+            if(val===String(id)){//note the triple equals for the string comparison. Also had to force it to be a string
+                
+                //pull out the id of the reply
+                let dot=localStorage.key(i).indexOf(".");
+                let replyID=localStorage.key(i).substring(0,dot);
+                //add the replyID to the array
+                replies.push(replyID);
+
+            }
+        }
+    }
+    //do something with the replies. For now I'm just going to print to console
+    console.log(replies);
+    
+}

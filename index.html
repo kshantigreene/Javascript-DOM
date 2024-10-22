@@ -1,8 +1,7 @@
 <!DOCTYPE html>
  <head>
-  <script src="/dom.js">
-  
-  </script>  
+  <script src="/dom.js"></script>  
+  <script src="/local.js"></script>
  </head>
 <body onload="initPage()">
 <h2> DOM elements, HTML and CSS</h2>
@@ -16,7 +15,7 @@
 
 <div id="content"><!--- drop down and text area for language-->
     <h3>Select your favorite language:</h3>
-    <select id="languages" onclick="selectLanguage(this.value)">
+    <select id="languages" style="color:blue" onclick="selectLanguage(this.value)">
         <option value="">--Select--</option>
         <option value="java">Java</option>
         <option value="c#">C#</option>
@@ -36,6 +35,11 @@
 <!--- click smiley to toggle visible divs-->
 <p style="display:inline-block" onclick="switchContent()"><img src="smiley.gif" ></p>
 <p style="display:inline-block">click smiley to change content above</p>
+</div>
+
+<div id="posts">
+  <p>Posts here</p>
+
 </div>
 
 </body>
